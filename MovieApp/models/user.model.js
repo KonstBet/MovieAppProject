@@ -3,7 +3,7 @@ const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize('sqlite::memory:');
 
-let User = sequelize.define('User', {
+let User = sequelize.define('user', {
     email: Sequelize.STRING,
     password: Sequelize.STRING
 });

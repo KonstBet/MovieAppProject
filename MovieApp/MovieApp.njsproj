@@ -30,10 +30,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.js" />
+    <Content Include="controllers\bookmark.controller.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="controllers\user.controller.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="models\bookmark.model.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="models\user.model.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\bookmarks.js">
       <SubType>Code</SubType>
     </Content>
     <Content Include="routes\index.js" />
