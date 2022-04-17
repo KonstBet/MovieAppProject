@@ -4,8 +4,8 @@ const Bookmark = require('../models/bookmark.model');
 
 exports.save = (req, res) => {
     const bookmark = {
-        movieid: req.query.movieid,
-        userid: req.query.userid
+        movieid: req.body.movieid,
+        userid: req.user.id
     }
 
     Bookmark.create(bookmark)
@@ -22,17 +22,17 @@ exports.save = (req, res) => {
 
 exports.find = (req, res) => {
     const bookmark = {
-        movieid: req.query.movieid,
-        userid: req.query.userid
+        movieid: req.params.movieid,
+        userid: req.user.id
     }
 
     Bookmark.findOne(
         {
-            where: userinfo
+            where: bookmark
         })
         .then(bookmark => {
             if (bookmark === null)
-                res.send("NOT FOUND!")
+                res.status(404).send("NOT FOUND!")
             else res.send(bookmark)
         })
         .catch(err => {
@@ -44,9 +44,10 @@ exports.find = (req, res) => {
 }
 
 exports.findall = (req, res) => {
+
     Bookmark.findAll(
         {
-            where: { userid: req.query.userid}
+            where: { userid: req.user.id}
         })
         .then(bookmarks => {
             if (bookmarks === null)
@@ -63,13 +64,13 @@ exports.findall = (req, res) => {
 
 exports.delete = (req, res) => {
     const bookmark = {
-        movieid: req.query.movieid,
-        userid: req.query.userid
+        movieid: req.body.movieid,
+        userid: req.user.id
     }
 
     Bookmark.delete(
         {
-            where: userinfo
+            where: bookmark
         })
         .then(user => {
             if (user === null)

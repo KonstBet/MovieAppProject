@@ -1,16 +1,17 @@
 'use strict';
 var express = require('express');
 var router = express.Router();
+let authenticateJWT = require("./authentication.js")
 
 //var usersdb = require('../db/usersdb');
 var controller = require('../controllers/bookmark.controller')
 
-router.get('/', controller.save);
+router.post('/', authenticateJWT, controller.save);
 
-router.get('/:movieid', controller.find)
+router.get('/:movieid', authenticateJWT, controller.find)
 
-router.get('/find', controller.findall)
+router.get('/', authenticateJWT, controller.findall)
 
-router.get('/delete', controller.delete)
+router.delete('/', authenticateJWT, controller.delete)
 
 module.exports = router;

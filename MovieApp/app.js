@@ -27,9 +27,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/user', users);
 app.use('/search', search);
-app.use('/bookmarks', bookmarks);
+app.use('/bookmark', bookmarks);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -62,7 +62,7 @@ app.use(function (err, req, res, next) {
     });
 });
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', 3000);
 
 var server = app.listen(app.get('port'), function () {
     debug('Express server listening on port ' + server.address().port);

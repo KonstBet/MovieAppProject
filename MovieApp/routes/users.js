@@ -5,8 +5,8 @@ var router = express.Router();
 //var usersdb = require('../db/usersdb');
 var controller = require('../controllers/user.controller')
 
-router.get('/', controller.save);
+router.post('/signup', controller.save);
 
-router.get('/', controller.find)
+router.post('/login', controller.find)
 
 module.exports = router;
