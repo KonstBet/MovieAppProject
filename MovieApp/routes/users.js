@@ -1,9 +1,9 @@
 'use strict';
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 
-//var usersdb = require('../db/usersdb');
-var controller = require('../controllers/user.controller')
+//let usersdb = require('../db/usersdb');
+let controller = require('../controllers/user.controller')
 
 router.post('/signup', controller.save);
 
