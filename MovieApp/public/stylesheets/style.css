@@ -1,0 +1,175 @@
+* {
+    background-color: white;
+    color: black;
+}
+
+.menu {
+    display: flex;
+    background-color:burlywood;
+    border: 2px solid #1F1F1F;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 20px;
+}
+
+.menu > a {
+    background-color: #1F1F1F;
+    border: slateblue;
+    margin-right: 1px;
+}
+
+.menu_button {
+    background: #1F1F1F;
+    color: white;
+}
+
+.login {
+    background-color:slateblue;
+    color: white;
+    margin-left: auto;
+}
+
+.search {
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
+    justify-content: center;
+}
+
+.searchInput {
+    color: black;
+    background: white;
+    border: 4px solid #1F1F1F;
+    height: 30px;
+    font-size: 14px;
+}
+
+.results_list{
+    background-color:#1F1F1F;
+    display: grid;
+    list-style-type:none;
+    justify-content: center;
+    margin: 9%;
+    margin-top: 50px;
+    padding: 3px;
+}
+
+.result_item {
+    margin-top: 20px;
+    margin-bottom: 7px;
+    border: 1px solid whitesmoke;
+    max-width: 1280px;
+}
+
+.results_poster_info_split {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas:
+        "poster title title title title save"
+        "poster genre genre year year type"
+        "poster runtime runtime boxOffice boxOffice imdbRating"
+        "poster director director actors actors	actors"
+        "plot plot plot plot plot plot";
+    text-align: center;
+    
+}
+
+.itemBasic {
+    margin: 0;
+    border: 1px solid grey;
+}
+
+.itemPoster {
+    width: 100%;
+    max-width: 350px;
+    min-width: 100px;
+    grid-area: poster;
+    border: 0;
+}
+
+.itemTitle {
+    grid-area: title;
+    border-right: 0;
+}
+
+.itemSave {
+    border-left: 0;
+    background-color: green;
+    grid-area: save;
+    height: 30px;
+    margin: auto;
+    margin-right: 0;
+    margin-top: 0;
+}
+
+.itemGenre {
+    grid-area: genre;
+}
+
+.itemYear {
+    grid-area: year;
+}
+
+.itemType {
+    grid-area: type;
+}
+
+.itemRuntime {
+    grid-area: runtime;
+}
+
+.itemBoxOffice {
+    grid-area: boxOffice;
+}
+
+.itemImdbRating {
+    grid-area: imdbRating;
+}
+
+.itemDirector {
+    grid-area: director;
+}
+
+.itemActors {
+    grid-area: actors;
+}
+
+.itemPlot {
+    grid-area: plot;
+}
+
+.moreText {
+    font-style: italic;
+    text-decoration: underline;
+}
+
+
+
+
+/* Login Page */
+.form_background {
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.login_form {
+    display: grid;
+    justify-content: center;
+    background-color: white;
+    background: #1F1F1F;
+    border-radius: 7px;
+}
+
+.form_item {
+    color: #1F1F1F;
+    background: white;
+    height: 25px;
+    font-size: 14px;
+}
+
+.submit_button {
+    background-color:slateblue;
+    color:white
+}

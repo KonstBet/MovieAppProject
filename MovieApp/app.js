@@ -7,7 +7,7 @@ let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 
-let routes = require('./routes/index');
+let pages = require('./routes/pages');
 let users = require('./routes/users');
 let bookmarks = require('./routes/bookmarks');
 let search = require('./routes/search');
@@ -15,8 +15,8 @@ let search = require('./routes/search');
 let app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, 'views'))
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -26,11 +26,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+app.use('/', pages);
 app.use('/user', users);
 app.use('/search', search);
 app.use('/bookmark', bookmarks);
 
+console.log(__dirname)
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     let err = new Error('Not Found');
