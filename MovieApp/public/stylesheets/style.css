@@ -51,8 +51,8 @@
     justify-content: center;
     margin: 9%;
     margin-top: 50px;
-    padding: 2%;
-    grid-gap: 40px;}
+    padding: 1%;
+    grid-gap: 30px;}
 
 .result_item {
     margin-top: 20px;
@@ -167,14 +167,19 @@
     border-radius: 7px;
     padding: 120px;}
 
+.formText {
+    background: #1F1F1F;
+    color: white;
+    margin: auto;}
+
 .form_item {
     color: #1F1F1F;
     background: white;
     height: 25px;
-    font-size: 14px;
+    padding: 2px;font-size: 14px;
 }
 
 .submit_button {
     background-color:slateblue;
     color:white
-}
+;padding: 5px;}

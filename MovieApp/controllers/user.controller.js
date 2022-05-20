@@ -12,7 +12,8 @@ exports.save = (req, res) => {
 
     User.create(user)
         .then(data => {
-            res.send(data);
+            res.header("aaa").set
+            res.status(200).send(data);
         })
         .catch(err => {
             res.status(500).send({
@@ -33,13 +34,20 @@ exports.find = (req, res) => {
             where: userinfo
         })
         .then(user => {
-            if (user === null)
+            if (user === null) {
+                console.log("IMHERE")
                 res.status(404).send("NOT FOUND!")
+
+            }
 
             else {
                 let accessToken = jwt.sign({ user: user }, JWT_SECRET, {expiresIn: '1d'})
 
-                res.json(
+                res.status(200)
+                    .cookie("authorization", 'Bearer '+accessToken, {
+                        maxAge: 3600000
+                    })
+                    .json(
                     {
                         user: user,
                         token: accessToken
@@ -53,4 +61,5 @@ exports.find = (req, res) => {
                 err.message
         });
     });
+
 }

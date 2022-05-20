@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <script src="/scripts/account_script.js"></script>
+    </head>
+    <body>
+        <div class="menu">
+            <a href="/"><button class="menu_button" style="font-size: 19px;">Home</button></a>
+            <a href="/bookmarks"><button class="menu_button" style="font-size: 19px;">My Bookmarks</button></a>
+            <a id="login" class="login" href="/login"><button class="login" style="font-size: 19px;">Log In</button></a>
+            <a id="signup" class="signup" href="/register"><button class="signup" style="font-size: 19px;">Sign Up</button></a>
+        </div>
+
+        <div class="form_background">
+            <form class="login_form" action="javascript:register()">
+                <h2 class="formText">Register</h2><br><br>
+                <input class="form_item" type="text" id="email" name="email" placeholder="Email Address" value="" size="30" maxlength="30"><br>
+                <input class="form_item" type="password" id="password" name="password" placeholder="Password" value="" size="30" maxlength="30"><br><br>
+                <input class="submit_button" type="submit" value="Submit"><br>
+            </form>
+        </div>
+    </body>
+</html>

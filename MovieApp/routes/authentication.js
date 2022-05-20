@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const JWT_SECRET = 'secretFromEnv';
 
 const authenticateJWT = (req, res, next) => {
-    const authHeader = req.headers.authorization;
+    const authHeader = req.cookies.authorization;
 
     if (authHeader) {
         const token = authHeader.split(' ')[1];
