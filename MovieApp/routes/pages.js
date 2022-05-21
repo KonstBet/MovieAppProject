@@ -4,19 +4,31 @@ let router = express.Router();
 
 /* GET home page. */
 router.get('/', function (req, res) {
-    res.render("index");
+    var loggedIn = false
+    if (req.cookies.authorization !== undefined)
+        loggedIn = true
+    res.render("index", { loggedIn: loggedIn} );
 });
 
 router.get('/bookmarks', function (req, res) {
-    res.render("bookmarks");
+    var loggedIn = false
+    if (req.cookies.authorization !== undefined)
+        loggedIn = true
+    res.render("bookmarks", { loggedIn: loggedIn} );
 });
 
 router.get('/login', function (req, res) {
-    res.render("login");
+    var loggedIn = false
+    if (req.cookies.authorization !== undefined)
+        loggedIn = true
+    res.render("login", { loggedIn: loggedIn} );
 });
 
 router.get('/register', function (req, res) {
-    res.render("register");
+    var loggedIn = false
+    if (req.cookies.authorization !== undefined)
+        loggedIn = true
+    res.render("register", { loggedIn: loggedIn} );
 });
 
 module.exports = router;

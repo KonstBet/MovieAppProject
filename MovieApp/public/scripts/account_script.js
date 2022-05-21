@@ -64,3 +64,12 @@ async function login() {
 
     window.location.href = '../'
 }
+
+async function logout() {
+
+    var res = await fetch('user/logout', {
+        method: 'GET',
+    })
+
+    window.location.href = '../'
+}

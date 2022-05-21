@@ -13,3 +13,59 @@ document.getElementById("results_list").appendChild(results_list)
 
 //make list items
 populateList(results_list,jsonObject)
+
+fetchAllBookmarks()
+
+async function fetchAllBookmarks() {
+    var res = await fetch('bookmark', {
+        method: 'GET'
+    })
+    console.log(res.status)
+
+    var bookmarks = await res.json()
+    console.log(bookmarks)
+}
+
+async function fetchBookmark(movieid) {
+    var res = await fetch('bookmark/'+movieid, {
+        method: 'GET'
+    })
+    console.log(res.status)
+
+    var bookmarks = await res.json()
+    console.log(bookmarks)
+}
+
+async function saveBookmark(movieid) {
+    var res = await fetch('bookmark', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            movieid: movieid
+        })
+    })
+    console.log(res.status)
+
+    var bookmarks = await res.json()
+    console.log(bookmarks)
+}
+
+async function deleteBookmark(movieid) {
+    var res = await fetch('bookmark', {
+        method: 'DELETE',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            movieid: movieid
+        })
+    })
+    console.log(res.status)
+
+    var bookmarks = await res.json()
+    console.log(bookmarks)
+}

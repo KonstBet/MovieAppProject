@@ -51,7 +51,7 @@ exports.findall = (req, res) => {
         })
         .then(bookmarks => {
             if (bookmarks === null)
-                res.send("NOT FOUND!")
+                res.status(404).send("NOT FOUND!")
             else res.send(bookmarks)
         })
         .catch(err => {
@@ -74,7 +74,7 @@ exports.delete = (req, res) => {
         })
         .then(user => {
             if (user === null)
-                res.send("NOT FOUND!")
+                res.status(404).send("NOT FOUND!")
             else res.send(user)
         })
         .catch(err => {
