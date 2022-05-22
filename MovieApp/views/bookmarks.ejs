@@ -4,11 +4,11 @@
         <title>Omdb Movies My Bookmarks</title>
         <link rel="shortcut icon" href="#">
         <link rel="stylesheet" href="/stylesheets/style.css">
+        <script src="/scripts/bookmarks_script.js"></script>
         <script src="/scripts/populateList.js"></script>
-        <script src="/scripts/bookmarks_script.js" defer></script>
         <script src="/scripts/account_script.js"></script>
     </head>
-    <body>
+    <body onload="showBookmarks()">
         <div class="menu">
             <a href="/"><button class="menu_button" style="font-size: 19px;">Home</button></a>
             <% if (loggedIn) { %>

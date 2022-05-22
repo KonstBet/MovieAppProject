@@ -6,7 +6,7 @@ const sequelize = new Sequelize('sqlite::memory:');
 //const User = require('./user.model');
 
 let Bookmark = sequelize.define('Bookmarks', {
-    movieid: Sequelize.INTEGER,
+    imdbID: Sequelize.INTEGER,
     userid: Sequelize.INTEGER
 });
 

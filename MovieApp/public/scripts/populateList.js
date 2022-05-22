@@ -87,8 +87,29 @@ async function movieJsonToElements(node, item) {
     saveNode.className = "itemSave itemBasic"
     saveNode.src = "./ribbon.png"
     saveNode.id = "s" + item.imdbID
-    saveNode.onclick = () => {
-        console.log("BBB")
+
+    if (document. cookie. indexOf('authorization=') === 0) {
+        var bookmarkColorFlag = await fetchBookmark(item.imdbID)
+        if (bookmarkColorFlag === undefined)
+            saveNode.style = "background-color:green;"
+        else saveNode.style = "background-color:burlywood;"
+
+        saveNode.onclick = async () => {
+            var result = await fetchBookmark(item.imdbID)
+            console.log(result)
+            if (result === undefined) {
+                saveBookmark(item.imdbID)
+                saveNode.style = "background-color:burlywood;"
+            } else {
+                deleteBookmark(item.imdbID)
+                saveNode.style = "background-color:green;"
+            }
+        }
+    }
+    else {
+        saveNode.onclick = () => {
+            window.location.href = '/login'
+        }
     }
 
 

@@ -8,7 +8,7 @@ let controller = require('../controllers/bookmark.controller')
 
 router.post('/', authenticateJWT, controller.save);
 
-router.get('/:movieid', authenticateJWT, controller.find)
+router.get('/:imdbID', authenticateJWT, controller.find)
 
 router.get('/', authenticateJWT, controller.findall)
 
