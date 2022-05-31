@@ -52,7 +52,7 @@
     margin: 9%;
     margin-top: 50px;
     padding: 1%;
-    grid-gap: 30px;}
+    grid-gap: 30px;border-radius: 5px;}
 
 .result_item {
     margin-top: 20px;
@@ -77,6 +77,12 @@
 .itemBasic {
     margin: 0;
     border: 3px solid grey;}
+
+.itemAlign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .itemPoster {
     width: 100%;

@@ -76,7 +76,7 @@ async function movieJsonToElements(node, item) {
     actorsNode.textContent = "Actors: " + item.Actors
 
     var plotNode = document.createElement("h4")
-    plotNode.className = "itemPlot itemBasic itemAlign"
+    plotNode.className = "itemPlot itemBasic"
     plotNode.id = ""
     plotNode.innerHTML = "Plot: " + item.Plot + "&ensp;"
 
