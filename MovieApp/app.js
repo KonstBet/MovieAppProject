@@ -11,6 +11,7 @@ let pages = require('./routes/pages');
 let users = require('./routes/users');
 let bookmarks = require('./routes/bookmarks');
 let search = require('./routes/search');
+let githubOath = require('./routes/githubOauth');
 
 let app = express();
 
@@ -30,6 +31,7 @@ app.use('/', pages);
 app.use('/user', users);
 app.use('/search', search);
 app.use('/bookmark', bookmarks);
+app.use('/github', githubOath);
 
 console.log(__dirname)
 // catch 404 and forward to error handler
