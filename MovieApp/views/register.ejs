@@ -11,7 +11,7 @@
             <a href="/"><button class="menu_button" style="font-size: 19px;">Home</button></a>
             <% if (loggedIn) { %>
                 <a href="/bookmarks"><button class="menu_button" style="font-size: 19px;">My Bookmarks</button></a>
-                <a id="login" class="login""><button class="login" onclick="javascript:logout()" style="font-size: 19px;">Log Out</button></a>
+                <a id="login" class="login"><button class="login" onclick="javascript:logout()" style="font-size: 19px;">Log Out</button></a>
             <% } else { %>
                 <a id="login" class="login" href="/login"><button class="login" style="font-size: 19px;">Log In</button></a>
                 <a id="signup" class="signup" href="/register"><button class="signup" style="font-size: 19px;">Sign Up</button></a>
@@ -23,7 +23,8 @@
                 <h2 class="formText">Register</h2><br><br>
                 <input class="form_item" type="text" id="email" name="email" placeholder="Email Address" value="" size="30" maxlength="30"><br>
                 <input class="form_item" type="password" id="password" name="password" placeholder="Password" value="" size="30" maxlength="30"><br><br>
-                <input class="submit_button" type="submit" value="Submit"><br>
+                <input class="submit_button form_item" type="submit" value="Submit"><br><br>
+                <a href="https://github.com/login/oauth/authorize?client_id=6bd56548aa317270376c"><img class="github_button form_item" src="./github_button.png" /></a>
             </form>
         </div>
     </body>

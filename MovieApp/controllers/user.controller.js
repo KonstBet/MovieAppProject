@@ -41,6 +41,7 @@ exports.find = (req, res) => {
             }
 
             else {
+                console.log(user)
                 let accessToken = jwt.sign({ user: user }, JWT_SECRET, {expiresIn: '1d'})
 
                 res.status(200)
