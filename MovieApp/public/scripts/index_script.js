@@ -37,3 +37,11 @@ async function searchFunction() {
         populateList(list,moviesJson)
     }
 }
+
+function scaleSearch() {
+    document.getElementById('search').style = "transform: scale(1.1);";
+}
+
+function scaleSearchBack () {
+    document.getElementById('search').style = "transform: scale(0.9999);";
+}

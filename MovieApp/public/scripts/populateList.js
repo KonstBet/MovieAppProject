@@ -45,7 +45,7 @@ async function movieJsonToElements(node, item) {
 
     var genreNode = document.createElement("h4")
     genreNode.className = "itemGenre itemBasic itemAlign"
-    genreNode.textContent = "Genre :" + item.Genre
+    genreNode.textContent = "Genre: " + item.Genre
 
     var yearNode = document.createElement("h4")
     yearNode.className = "itemYear itemBasic itemAlign"
@@ -91,18 +91,18 @@ async function movieJsonToElements(node, item) {
     if (document. cookie. indexOf('authorization=') === 0) {
         var bookmarkColorFlag = await fetchBookmark(item.imdbID)
         if (bookmarkColorFlag === undefined)
-            saveNode.style = "background-color:green;"
-        else saveNode.style = "background-color:burlywood;"
+            saveNode.style = "background-color:lawngreen;"
+        else saveNode.style = "background-color:lightsalmon;"
 
         saveNode.onclick = async () => {
             var result = await fetchBookmark(item.imdbID)
             console.log(result)
             if (result === undefined) {
                 saveBookmark(item.imdbID)
-                saveNode.style = "background-color:burlywood;"
+                saveNode.style = "background-color:lightsalmon;"
             } else {
                 deleteBookmark(item.imdbID)
-                saveNode.style = "background-color:green;"
+                saveNode.style = "background-color:lawngreen;"
             }
         }
     }

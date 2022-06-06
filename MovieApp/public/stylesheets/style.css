@@ -1,15 +1,22 @@
 * {
     background-color: white;
     color: black;
+    font-size: 18px;
+}
+
+a:hover {
+    transform: scale(1.1);
 }
 
 .menu {
     display: flex;
-    background-color:burlywood;
+    background-color:
+            blanchedalmond;
     border: 2px solid #1F1F1F;
     margin-left: 5%;
     margin-right: 5%;
     margin-bottom: 20px;
+    /* font-size: 20px; */
 }
 
 .menu > a {
@@ -19,15 +26,19 @@
 }
 
 .menu_button {
-    background: #1F1F1F;
+    background: cornflowerblue;
     color: white;
+    font-size: 20px;
 }
 
 .login {
-    background-color:slateblue;
+    background-color: lightseagreen;
     color: white;
     margin-left: auto;
+    font-size: 20px;
 }
+
+
 
 .search {
     display: flex;
@@ -45,14 +56,18 @@
     padding: 15px;}
 
 .results_list{
-    background-color:#1F1F1F;
+    background-color:
+            blanchedalmond;
     display: grid;
-    list-style-type:none;
+    list-style-type:
+            none;
     justify-content: center;
     margin: 9%;
     margin-top: 50px;
-    padding: 1%;
-    grid-gap: 30px;border-radius: 5px;}
+    padding: 2%;
+    grid-gap: 30px;
+    border-radius: 5px;
+}
 
 .result_item {
     margin-top: 20px;
@@ -76,7 +91,8 @@
 
 .itemBasic {
     margin: 0;
-    border: 3px solid grey;}
+    border: 3px solid lightgrey;
+}
 
 .itemAlign {
     display: flex;
@@ -95,16 +111,23 @@
 .itemTitle {
     grid-area: title;
     border-right: 0;
-    border-top: 0;border-bottom: 0;}
+    border-top: 0;
+    border-bottom: 0;
+    font-size: 22px;
+}
 
 .itemSave {
     border: 0;
-    background-color: green;
+    background-color: lawngreen;
     grid-area: save;
     height: 30px;
     margin: auto;
     margin-right: 0;
     margin-top: 0;
+}
+
+.itemSave:hover {
+    transform: scale(1.1);
 }
 
 .itemGenre {
@@ -156,6 +179,10 @@
     text-decoration: underline;
     border: 0;}
 
+.moreText:hover {
+    font-size: 19px;
+}
+
 
 
 
@@ -194,6 +221,10 @@
             white;
     padding: 5px;
     width: 100%;
+}
+
+.submit_button:hover {
+    transform: scale(1.05);
 }
 
 .github_button {

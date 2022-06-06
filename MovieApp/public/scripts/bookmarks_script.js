@@ -17,7 +17,7 @@ function showBookmarks() {
             console.log(bookmarks)
             if (bookmarks === undefined || bookmarks.length === 0) {
                 results_list.textContent = "You do not have any Bookmarks!"
-                results_list.style = "color: white;"
+                results_list.style = "color: black; font-size: 20px;"
                 return
             }
 

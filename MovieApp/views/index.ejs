@@ -12,13 +12,13 @@
     </head>
     <body>
         <div class="menu">
-            <a href="/"><button class="menu_button" style="font-size: 19px;">Home</button></a>
+            <a href="/"><button class="menu_button">Home</button></a>
             <% if (loggedIn) { %>
-                <a href="/bookmarks"><button class="menu_button" style="font-size: 19px;">My Bookmarks</button></a>
-                <a id="login" class="login""><button class="login" onclick="javascript:logout()" style="font-size: 19px;">Log Out</button></a>
+                <a href="/bookmarks"><button class="menu_button">My Bookmarks</button></a>
+                <a id="login" class="login"><button class="login" onclick="javascript:logout()">Log Out</button></a>
             <% } else { %>
-                <a id="login" class="login" href="/login"><button class="login" style="font-size: 19px;">Log In</button></a>
-                <a id="signup" class="signup" href="/register"><button class="signup" style="font-size: 19px;">Sign Up</button></a>
+                <a id="login" class="login" href="/login"><button class="login">Log In</button></a>
+                <a id="signup" class="signup" href="/register"><button class="signup">Sign Up</button></a>
             <% } %>
         </div>
 
@@ -26,7 +26,7 @@
             <form>
                 <input type="search" id="search" name="search" class="searchInput"
                     size="50" maxlength="50"
-                    placeholder="Search movies.." oninput="searchFunction()">
+                    placeholder="Search movies.." oninput="searchFunction()" onfocus="scaleSearch()" onfocusout="scaleSearchBack()">
             </form>
         </div>
         
