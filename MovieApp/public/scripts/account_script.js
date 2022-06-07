@@ -1,30 +1,23 @@
-let client_id = "6bd56548aa317270376c"
-
-const query = window.location.search.substring(1)
-const token = query.split('access_token=')[1]
-
-if (token !== undefined)
-    loginViaGithub(token)
-
 
 async function register() {
+    var username = document.getElementById("username").value
     var email = document.getElementById("email").value
     var password = document.getElementById("password").value
 
+    console.log(username)
     console.log(email)
     console.log(password)
 
-    let res = await registerFetch(email, password)
+    let res = await registerFetch(username, email, password)
 
-    var result = await res.json()
-    console.log(result)
+    console.log(res.status)
 
-    if (result.email !== email && result.password !== password)
+    if (res.status !== 200)
         console.log("ERROR")
     else window.location.href = '../login'
 }
 
-async function registerFetch(email, password) {
+async function registerFetch(username, email, password) {
 
     var res = await fetch('user/register', {
         method: 'POST',
@@ -33,6 +26,7 @@ async function registerFetch(email, password) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
+            username: username,
             email: email,
             password: password
         })
@@ -49,6 +43,7 @@ async function login() {
     console.log(password)
 
     let res = await loginFetch(email, password)
+    console.log(res)
 
     if (res.status !== 200) {
         console.log(res)
@@ -63,9 +58,6 @@ async function login() {
         }
         return
     }
-
-    var result = await res.json()
-    console.log(result)
 
     window.location.href = '../'
 }
@@ -84,28 +76,9 @@ async function loginFetch(email, password) {
         })
     })
 
+    console.log(res)
+
     return res
-}
-
-function loginViaGithub(token) {
-
-    console.log("AAA")
-    fetch('https://api.github.com/user', {
-        headers: {
-            Authorization: 'token ' + token
-        }
-    })
-    .then(res => res.json())
-    .then(async res => {
-        let resp = await loginFetch(res.email,"")
-
-        if (resp.status !== 200) {
-            await registerFetch(res.email,"");
-            await loginFetch(res.email,"")
-        }
-
-        window.location.href = '../'
-    })
 }
 
 async function logout() {

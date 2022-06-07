@@ -22,7 +22,32 @@ router.get('/callback', (req, res) => {
 
         let access_token = response.data.access_token
 
-        res.redirect("/login?access_token="+access_token)
+        axios.get('https://api.github.com/user', {
+            headers: {
+                Authorization: 'token ' + access_token
+            }})
+            .then(async resp => {
+                console.log(resp.data)
+
+                var jwt_token;
+                jwt_token = await userController.findAuthAccount(resp.data.login, resp.data.email, "github");
+
+                if (jwt_token === undefined) {
+                    await userController.saveAuthAccount(resp.data.login, resp.data.email, "github");
+
+                    jwt_token = await userController.findAuthAccount(resp.data.login, resp.data.email, "github");
+
+                }
+
+                res.cookie("authorization", 'Bearer '+jwt_token, {
+                    maxAge: 3600000
+                }).redirect("/")
+            })
+            .catch(_ => {
+
+            })
+
+
     })
 })
 

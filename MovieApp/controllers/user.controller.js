@@ -6,14 +6,16 @@ const User = require('../models/user.model');
 
 exports.save = (req, res) => {
     const user = {
+        username: req.body.username,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        type: "basic"
     }
 
     User.create(user)
         .then(data => {
-            res.header("aaa").set
-            res.status(200).send(data);
+            // res.header("aaa").set
+            res.sendStatus(200);
         })
         .catch(err => {
             res.status(500).send({
@@ -26,7 +28,8 @@ exports.save = (req, res) => {
 exports.find = (req, res) => {
     const userinfo = {
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        type: "basic"
     }
 
     User.findOne(
@@ -37,23 +40,20 @@ exports.find = (req, res) => {
             if (user === null) {
                 console.log("IMHERE")
                 res.status(404).send("NOT FOUND!")
-
             }
-
             else {
                 console.log(user)
                 let accessToken = jwt.sign({ user: user }, JWT_SECRET, {expiresIn: '1d'})
 
-                res.status(200)
-                    .cookie("authorization", 'Bearer '+accessToken, {
+                res.cookie("authorization", 'Bearer '+accessToken, {
                         maxAge: 3600000
-                    })
-                    .json(
-                    {
-                        user: user,
-                        token: accessToken
-                    }
-                )
+                    }).sendStatus(200)
+                //     .json(
+                //     {
+                //         user: user,
+                //         token: accessToken
+                //     }
+                // )
             }
         })
         .catch (err => {
@@ -62,5 +62,47 @@ exports.find = (req, res) => {
                 err.message
         });
     });
+}
 
+//----------------------------------------------------------
+//----------------------------------------------------------
+
+exports.saveAuthAccount = (username, email, type) => {
+    const user = {
+        username: username,
+        email: email,
+        type: type
+    }
+
+    return User.create(user)
+        .then(data => {
+            return true;
+        })
+        .catch(_ => {
+            return false;
+        });
+}
+
+exports.findAuthAccount = (username, email, type) => {
+    console.log(username, email, type)
+
+    const userinfo = {
+        username: username,
+        email: email,
+        type: type
+    }
+
+    return User.findOne(
+        {
+            where: userinfo
+        })
+        .then(user => {
+            console.log(user)
+            let accessToken = jwt.sign({user: user}, JWT_SECRET, {expiresIn: '1d'})
+            console.log("I GIVE TOKEN ", accessToken)
+            return accessToken;
+        })
+        .catch(_ => {
+            console.log("WTFFFF")
+        });
 }
