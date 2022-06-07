@@ -1,0 +1,128 @@
+
+.results_list{
+    background-color:
+            blanchedalmond;
+    display: grid;
+    list-style-type:
+            none;
+    justify-content: center;
+    margin: 9%;
+    margin-top: 50px;
+    padding: 2%;
+    grid-gap: 30px;
+    border-radius: 5px;
+}
+
+.result_item {
+    margin-top: 20px;
+    margin-bottom: 7px;
+    border: 1px solid whitesmoke;
+    max-width: 1280px;
+}
+
+.results_poster_info_split {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas:
+        "poster title title title title save"
+        "poster genre genre year year type"
+        "poster runtime runtime boxOffice boxOffice imdbRating"
+        "poster director director actors actors	actors"
+        "plot plot plot plot plot plot";
+    text-align: center;
+
+}
+
+.itemBasic {
+    margin: 0;
+    border: 3px solid lightgrey;
+}
+
+.itemAlign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemPoster {
+    width: 100%;
+    max-width: 350px;
+    min-width: 100px;
+    grid-area: poster;
+    border: 0;
+}
+
+.itemTitle {
+    grid-area: title;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 0;
+    font-size: 22px;
+}
+
+.itemSave {
+    border: 0;
+    background-color: lawngreen;
+    grid-area: save;
+    height: 30px;
+    margin: auto;
+    margin-right: 0;
+    margin-top: 0;
+}
+
+.itemSave:hover {
+    transform: scale(1.1);
+}
+
+.itemGenre {
+    grid-area: genre;
+    border-right: 0;border-bottom: 0;}
+
+.itemYear {
+    grid-area: year;
+    border-right: 0;
+    border-bottom: 0;}
+
+.itemType {
+    grid-area: type;
+    border-right: 0;
+    border-bottom: 0;}
+
+.itemRuntime {
+    grid-area: runtime;
+    border-right: 0;
+    border-bottom: 0;}
+
+.itemBoxOffice {
+    grid-area: boxOffice;
+    border-right: 0;
+    border-bottom: 0;}
+
+.itemImdbRating {
+    grid-area: imdbRating;
+    border-right: 0;
+    border-bottom: 0;}
+
+.itemDirector {
+    grid-area: director;
+    border-right: 0;
+    border-bottom: 0;}
+
+.itemActors {
+    grid-area: actors;
+    border-right: 0;
+    border-bottom: 0;}
+
+.itemPlot {
+    grid-area: plot;
+    border-right: 0;
+    border-bottom: 0;border-left: 0;}
+
+.moreText {
+    font-style: italic;
+    text-decoration: underline;
+    border: 0;}
+
+.moreText:hover {
+    font-size: 19px;
+}

@@ -98,6 +98,9 @@ exports.findAuthAccount = (username, email, type) => {
         })
         .then(user => {
             console.log(user)
+            if (user === null) {
+                return undefined;
+            }
             let accessToken = jwt.sign({user: user}, JWT_SECRET, {expiresIn: '1d'})
             console.log("I GIVE TOKEN ", accessToken)
             return accessToken;
