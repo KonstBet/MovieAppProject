@@ -27,15 +27,16 @@ router.get('/callback', (req, res) => {
                 Authorization: 'token ' + access_token
             }})
             .then(async resp => {
-                console.log(resp.data)
+                githubUserData = resp.data
+                console.log(githubUserData)
 
                 var jwt_token;
-                jwt_token = await userController.findAuthAccount(resp.data.login, resp.data.email, "github");
+                jwt_token = await userController.findAuthAccount(githubUserData.login, githubUserData.email, "github");
 
                 if (jwt_token === undefined) {
-                    await userController.saveAuthAccount(resp.data.login, resp.data.email, "github");
+                    await userController.saveAuthAccount(githubUserData.login, githubUserData.email, "github");
 
-                    jwt_token = await userController.findAuthAccount(resp.data.login, resp.data.email, "github");
+                    jwt_token = await userController.findAuthAccount(githubUserData.login, githubUserData.email, "github");
 
                 }
 
