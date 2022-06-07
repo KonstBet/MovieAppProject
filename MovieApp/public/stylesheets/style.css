@@ -1,7 +1,8 @@
 * {
     background-color: white;
     color: black;
-    font-size: 18px;
+    font-size: 20px;
+    font-family: Cambria, Georgia, serif;
 }
 
 a:hover {
@@ -28,14 +29,20 @@ a:hover {
 .menu_button {
     background: cornflowerblue;
     color: white;
-    font-size: 20px;
+    font-size: 24px;
 }
 
 .login {
     background-color: lightseagreen;
     color: white;
     margin-left: auto;
-    font-size: 20px;
+    font-size: 24px;
+}
+
+.signup {
+    background-color: white;
+    color: black;
+    font-size: 23px;
 }
 
 
@@ -52,8 +59,9 @@ a:hover {
     background: white;
     border: 4px solid #1F1F1F;
     height: 30px;
-    font-size: 14px;
-    padding: 15px;}
+    font-size: 18px;
+    padding: 15px;
+}
 
 
 
@@ -76,13 +84,16 @@ a:hover {
 .formText {
     background: #1F1F1F;
     color: white;
-    margin: auto;}
+    margin: auto;
+    font-size: 24px;
+}
 
 .form_item {
     color: #1F1F1F;
     background: white;
-    height: 25px;
-    padding: 2px;font-size: 14px;
+    /* height: 25px; */
+    padding: 5px;
+    font-size: 18px;
 }
 
 .submit_button {
@@ -90,8 +101,7 @@ a:hover {
             slateblue;
     color:
             white;
-    padding: 5px;
-    width: 100%;
+    width: 40%;
 }
 
 .submit_button:hover {
@@ -99,5 +109,5 @@ a:hover {
 }
 
 .github_button {
-    height: 70px;
+    height: 80px;
 }

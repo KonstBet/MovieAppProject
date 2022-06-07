@@ -12,8 +12,23 @@ async function register() {
 
     console.log(res.status)
 
-    if (res.status !== 200)
-        console.log("ERROR")
+    if (res.status !== 200) {
+        console.log(res)
+        document.getElementById("username").style = "color:red;"
+        document.getElementById("email").style = "color:red;"
+        document.getElementById("password").style = "color:red;"
+
+        document.getElementById("username").onclick = () => {
+            document.getElementById("username").style = "color: #1F1F1F;"
+        }
+        document.getElementById("email").onclick = () => {
+            document.getElementById("email").style = "color: #1F1F1F;"
+        }
+        document.getElementById("password").onclick = () => {
+            document.getElementById("password").style = "color: #1F1F1F;"
+        }
+        return
+    }
     else window.location.href = '../login'
 }
 
