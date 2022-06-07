@@ -59,9 +59,9 @@ async function movieJsonToElements(node, item) {
     runtimeNode.className = "itemRuntime itemBasic itemAlign"
     runtimeNode.textContent = "Duration: " + item.Runtime
 
-    var boxOfficeNode = document.createElement("h4")
-    boxOfficeNode.className = "itemBoxOffice itemBasic itemAlign"
-    boxOfficeNode.textContent = "BoxOffice: " + item.BoxOffice
+    var languageNode = document.createElement("h4")
+    languageNode.className = "itemLanguage itemBasic itemAlign"
+    languageNode.textContent = "Language: " + item.Language
 
     var imdbRatingNode = document.createElement("h4")
     imdbRatingNode.className = "itemImdbRating itemBasic itemAlign"
@@ -131,7 +131,7 @@ async function movieJsonToElements(node, item) {
 
 
     movieNode.append(moviePoster, titleNode, saveNode, genreNode,
-        yearNode, typeNode, runtimeNode, boxOfficeNode,
+        yearNode, typeNode, runtimeNode, languageNode,
         imdbRatingNode, directorNode, actorsNode, plotNode)
     node.append(movieNode)
 

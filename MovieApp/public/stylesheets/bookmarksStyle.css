@@ -26,7 +26,7 @@
     grid-template-areas:
         "poster title title title title save"
         "poster genre genre year year type"
-        "poster runtime runtime boxOffice boxOffice imdbRating"
+        "poster runtime runtime language language imdbRating"
         "poster director director actors actors	actors"
         "plot plot plot plot plot plot";
     text-align: center;
@@ -93,8 +93,8 @@
     border-right: 0;
     border-bottom: 0;}
 
-.itemBoxOffice {
-    grid-area: boxOffice;
+.itemLanguage {
+    grid-area: language;
     border-right: 0;
     border-bottom: 0;}
 
