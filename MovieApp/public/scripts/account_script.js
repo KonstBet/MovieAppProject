@@ -4,16 +4,9 @@ async function register() {
     var email = document.getElementById("email").value
     var password = document.getElementById("password").value
 
-    console.log(username)
-    console.log(email)
-    console.log(password)
-
     let res = await registerFetch(username, email, password)
 
-    console.log(res.status)
-
     if (res.status !== 200) {
-        console.log(res)
         document.getElementById("username").style = "color:red;"
         document.getElementById("email").style = "color:red;"
         document.getElementById("password").style = "color:red;"
@@ -54,14 +47,10 @@ async function login() {
     var email = document.getElementById("email").value
     var password = document.getElementById("password").value
 
-    console.log(email)
-    console.log(password)
 
     let res = await loginFetch(email, password)
-    console.log(res)
 
     if (res.status !== 200) {
-        console.log(res)
         document.getElementById("email").style = "color:red;"
         document.getElementById("password").style = "color:red;"
 
@@ -90,8 +79,6 @@ async function loginFetch(email, password) {
             password: password
         })
     })
-
-    console.log(res)
 
     return res
 }

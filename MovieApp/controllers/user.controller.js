@@ -14,7 +14,6 @@ exports.save = (req, res) => {
 
     User.create(user)
         .then(data => {
-            // res.header("aaa").set
             res.sendStatus(200);
         })
         .catch(err => {
@@ -38,22 +37,14 @@ exports.find = (req, res) => {
         })
         .then(user => {
             if (user === null) {
-                console.log("IMHERE")
                 res.status(404).send("NOT FOUND!")
             }
             else {
-                console.log(user)
                 let accessToken = jwt.sign({ user: user }, JWT_SECRET, {expiresIn: '1d'})
 
                 res.cookie("authorization", 'Bearer '+accessToken, {
                         maxAge: 3600000
                     }).sendStatus(200)
-                //     .json(
-                //     {
-                //         user: user,
-                //         token: accessToken
-                //     }
-                // )
             }
         })
         .catch (err => {
@@ -84,7 +75,6 @@ exports.saveAuthAccount = (username, email, type) => {
 }
 
 exports.findAuthAccount = (username, email, type) => {
-    console.log(username, email, type)
 
     const userinfo = {
         username: username,
@@ -97,15 +87,13 @@ exports.findAuthAccount = (username, email, type) => {
             where: userinfo
         })
         .then(user => {
-            console.log(user)
             if (user === null) {
                 return undefined;
             }
             let accessToken = jwt.sign({user: user}, JWT_SECRET, {expiresIn: '1d'})
-            console.log("I GIVE TOKEN ", accessToken)
             return accessToken;
         })
         .catch(_ => {
-            console.log("WTFFFF")
+            return undefined;
         });
 }

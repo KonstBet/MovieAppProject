@@ -73,7 +73,6 @@ exports.delete = (req, res) => {
             where: bookmark
         })
         .then(user => {
-            console.log(user)
             if (user === null)
                 res.status(404).send("NOT FOUND!")
             else res.status(200)

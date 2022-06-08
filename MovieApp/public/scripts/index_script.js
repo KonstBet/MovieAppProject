@@ -13,8 +13,6 @@ async function searchFunction() {
         return
     })
 
-
-    console.log(moviesJson)
     if (moviesJson === undefined) return
 
     var list = document.getElementById("list")

@@ -7,12 +7,11 @@ async function populateList(list, values) {
         var res = await fetch('search/id?plot=short&imdbID=' + y.imdbID, {
             method: 'GET'
         })
-        console.log(res.status)
+
         if (res.status !== 304 && res.status !== 200) continue
 
         var jsonInfo = await res.json()
         if (jsonInfo.Poster === "N/A") continue;   //DONT INCLUDE RESULTS WITHOUT POSTER CAUSE MOSTLY N/A / BAD VALUES
-        console.log(jsonInfo)
 
         var item
         item = document.createElement("li")
@@ -20,9 +19,7 @@ async function populateList(list, values) {
         item.className = "result_item"
 
 
-        console.log(jsonInfo)
         item = await movieJsonToElements(item, jsonInfo)
-        console.log(item)
 
         list.appendChild(item)
     }
@@ -97,7 +94,7 @@ async function movieJsonToElements(node, item) {
 
         saveNode.onclick = async () => {
             var result = await fetchBookmark(item.imdbID)
-            console.log(result)
+
             if (result === undefined) {
                 saveBookmark(item.imdbID)
                 saveNode.style = "background-color:lightsalmon;"

@@ -3,7 +3,6 @@ let express = require('express');
 let router = express.Router();
 let authenticateJWT = require("./authentication.js")
 
-//let usersdb = require('../db/usersdb');
 let controller = require('../controllers/user.controller')
 
 router.post('/register', controller.save);

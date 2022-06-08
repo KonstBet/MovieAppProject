@@ -28,7 +28,6 @@ router.get('/callback', (req, res) => {
             }})
             .then(async resp => {
                 githubUserData = resp.data
-                console.log(githubUserData)
 
                 var jwt_token;
                 jwt_token = await userController.findAuthAccount(githubUserData.login, githubUserData.email, "github");
