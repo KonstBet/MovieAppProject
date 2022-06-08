@@ -11,6 +11,7 @@ async function populateList(list, values) {
         if (res.status !== 304 && res.status !== 200) continue
 
         var jsonInfo = await res.json()
+        if (jsonInfo.Poster === "N/A") continue;   //DONT INCLUDE RESULTS WITHOUT POSTER CAUSE MOSTLY N/A / BAD VALUES
         console.log(jsonInfo)
 
         var item
