@@ -75,7 +75,7 @@ exports.delete = (req, res) => {
         .then(user => {
             if (user === null)
                 res.status(404).send("NOT FOUND!")
-            else res.status(200)
+            else res.sendStatus(200)
         })
         .catch(err => {
             res.status(500).send({
